@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  background-image: url('Images/GrassTexture.png'); /* Ensure the path to your texture is correct */
+  background-size: cover;  /* Cover the entire viewport */
+  background-repeat: no-repeat; /* Avoid repeating the image */
+  background-attachment: fixed; /* Keeps the background fixed during scrolling */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+ 
+}
+.wrapper {
+  padding: 20px; /* Optional: Adds some space around the play board */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Optional: Adds depth */
+  position: relative; 
+    width: 90vmin;  /* Adjust based on your viewport */
+    height: 90vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    background: #24846f;
+}
+
+.game-details {
+    width: 100%;
+    height: 20%; 
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    padding: 1rem;  
+    color: #ffbf01;  
+    font-size: 1.2rem; 
+    box-sizing: border-box; 
+}
+
+
+.play-board {
+  position: relative;  /* Essential for positioning children absolutely */
+  width: 600px;  /* Set according to your design needs */
+  height: 600px;  /* Set according to your design needs */
+  margin: auto;  /* Center the board on the page */
+  display: grid;
+  grid-template-columns: repeat(30, 20px);
+  grid-template-rows: repeat(30, 20px);
+    background: #000000;
+}
+
+.play-board div {
+  width: 100%;
+  height: 100%;
+}
+
+/* .food, .head, .body {
+  background-size: cover; /* Ensures the image covers the div completely
+ } */
+
+ .play-board .food, .play-board .head, .play-board .body {
+  width: 100%;
+  height: 100%;
+  background-size: contain;  
+  background-repeat: no-repeat;
+ }
+
+.play-board .food {
+  background-image: url('Images/Apple.png');
+    background-size: cover; 
+     /* // Ensures the image covers the entire div */
+}
+.play-board .head {
+
+  background-image: url('Images/SnakeHead.PNG');
+  background-size: cover;
+}
+
+
+.play-board .body {
+
+   /* // A different shade of green from the head */
+  background-image: url('Images/SnakeBody.PNG');
+  background-size: cover;  
+  /* // Ensure the image covers the div completely */
+}
+
+.controls {
+  display: none;
+  justify-content: space-between;
+}
+.controls i {
+  padding: 25px 0;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #B8C6DC;
+  width: calc(100% / 4);
+  cursor: pointer;
+  border-right: 1px solid #171B26;
+}
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    width: 90vmin;
+    height: 115vmin;
+  }
+  .game-details {
+    font-size: 1rem;
+    padding: 15px 27px;
+  }
+  .controls {
+    display: flex;
+  }
+  .controls i {
+    padding: 15px 0;
+    font-size: 1rem;
+  }
+}
+
+@keyframes rainbow {
+    0%,100% { color: red; }
+    8% { color: orange; }
+    16% { color: yellow; }
+    25% { color: green; }
+    33% { color: blue; }
+    41% { color: indigo; }
+    50% { color: violet; }
+    58% { color: indigo; }
+    66% { color: blue; }
+    75% { color: green; }
+    83% { color: yellow; }
+    91% { color: orange; }
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* Ensures perfect centering */
+  font-size: 1.5rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);  /* Semi-transparent background */
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: rainbow 2s linear infinite;  /* Apply the rainbow animation */
+}
